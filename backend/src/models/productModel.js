@@ -1,15 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Uber = require('./userModel');
+const User = require('./userModel');
 
 const Product = sequelize.define('Product', {
     id: {
         type: DataTypes.INTEGER,
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     name: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     description: {
@@ -23,6 +23,14 @@ const Product = sequelize.define('Product', {
     stock: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    seller_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'Users',
+            key: 'id'
+        }
     }
 }, {
     timestamps: true

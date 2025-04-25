@@ -1,14 +1,15 @@
-//const products = [];
+const Product = require('../models/productModel');
 
-const getAllProducts = async () => {
-    return [
-        { id: 1, name: "Camiseta Estilosa", price: 49.99},
-        { id: 2, name: "Calça Jeans", price: 89.99}
-    ];
+async function createProduct(productData) {
+   const newProduct = await Product.create(data);
+   return newProduct;
+}
+
+async function getAllProducts() {
+    return await Product.findAll();
+}
+
+module.exports = {
+    getAllProducts,
+    createProduct
 };
-
-const createProduct = async (productData) => {
-   return { id: Date.now(), ...productData };
-};
-
-module.exports = { getAllProducts, createProduct};
