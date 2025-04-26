@@ -13,14 +13,14 @@ const sequelize = require('./config/database');
 const User = require('./models/userModel');
 const Product = require('./models/productModel');
 const Order = require('./models/orderModel');
-const OrderItem = require('./models/orderItemModel'); // caso tenha criado
+const OrderItem = require('./models/orderItemModel'); 
 
 async function syncDatabase() {
   try {
     await sequelize.authenticate();
     console.log('🟢 Conexão com o banco de dados estabelecida com sucesso.');
 
-    await sequelize.sync({ alter: true }); // Cria/atualiza tabelas automaticamente
+    await sequelize.sync({ alter: true }); 
     console.log('📦 Todas as tabelas foram sincronizadas.');
 
   } catch (error) {

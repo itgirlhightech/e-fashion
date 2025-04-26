@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express-validator": "^7.2.1",
     "pg": "^8.14.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7"
