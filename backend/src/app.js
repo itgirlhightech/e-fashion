@@ -1,5 +1,5 @@
 const express = require('express');
-const pool = require('./db');
+//const pool = require('./db');
 
 const app = express();
 const productRoutes = require('../src/routes/productRoutes');
@@ -8,7 +8,7 @@ const userRoutes = require('../src/routes/userRoutes');
 
 app.use(express.json()); 
 app.use('/products', productRoutes);
-app.use('/api/users', usersRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/test-db', async (req, res) => {
     try {
