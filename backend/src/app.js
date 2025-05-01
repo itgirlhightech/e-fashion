@@ -1,7 +1,6 @@
 const express = require('express');
-//const pool = require('./db');
-
 const app = express();
+const pool = require('./db');
 const productRoutes = require('../src/routes/productRoutes');
 const userRoutes = require('../src/routes/userRoutes');
 

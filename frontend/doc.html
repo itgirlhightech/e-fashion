@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Usuário</title>
+</head>
+<body>
+    <h2>Criar Novo Usuário</h2>
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Nome" required><br><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <input type="password" id="password" placeholder="Senha" required><br><br>
+        <button type="submit">Criar Usuário</button>
+    </form>
+
+    <script>
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const userData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+            };
+
+            fetch('http://localhost:5050/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => alert('Usuário criado com sucesso!'))
+            .catch(error => alert('Erro ao criar usuário: ' + error));
+        });
+    </script>
+</body>
+</html>
