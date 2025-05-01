@@ -1,9 +1,10 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express-validator": "^7.2.1",
-    "pg": "^8.14.1",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.37.7"
+  "scripts": {
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "cd backend && npm install && node server.js",
+    "start-frontend": "cd frontend && npm install && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
   }
 }
